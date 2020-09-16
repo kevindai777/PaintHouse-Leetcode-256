@@ -15,12 +15,14 @@ if (costs.length == 0) {
 let previousRow = costs[0]
 
 for (let i = 1; i < costs.length; i++) {
+    
     //Add the possible sums into the next row, choosing the min cost between the two possible houses
     //from the previous row
     let currentRow = [...costs[i]]
     currentRow[0] += Math.min(previousRow[1], previousRow[2])
     currentRow[1] += Math.min(previousRow[0], previousRow[2])
     currentRow[2] += Math.min(previousRow[0], previousRow[1])
+    
     //Update the previous row for the next iteration
     previousRow = currentRow
 }
